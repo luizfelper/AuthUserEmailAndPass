@@ -17,7 +17,7 @@ function App() {
     } catch {
       console.log("error: ");
     }
-      setLoading(false);
+    setLoading(false);
   }
 
   async function handleLogout() {
@@ -27,7 +27,7 @@ function App() {
     } catch {
       console.log("error");
     }
-      setLoading(false);
+    setLoading(false);
   }
 
   async function handleLogin() {
@@ -37,29 +37,39 @@ function App() {
     } catch {
       console.log("error: ");
     }
-      setLoading(false);
+    setLoading(false);
   }
 
-    return (
-      <div className="App">
-        <div>
-          Atualmente logado como: {currentUser?.email}
-        </div>
+  return (
+    <div className="App">
 
-        <div className="Principal">
-          <div className="Form">
-            <input ref={emailRef} placeholder="Email"></input>
-            <input ref={passwordRef} type="password" placeholder="Password"></input>
-          </div>
+      {currentUser === null &&
+        <div>
+          <h1>Faça Login!</h1>
         </div>
+      }
+
+      {currentUser !== null &&
+        <div>
+          <h1>Logado como: {currentUser?.email}</h1>
+        </div>
+      }
+
+
+      <div className="Principal">
+        <div className="Form">
+          <input ref={emailRef} placeholder="Email"></input>
+          <input ref={passwordRef} type="password" placeholder="Password"></input>
+        </div>
+      </div>
 
       <div className="butoes">
-          <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
-          <button disabled={loading || currentUser != null} onClick={handleLogin}>LogIn</button>
-          <button  disabled={loading || !currentUser } onClick={handleLogout}>Log Out</button>
+        <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
+        <button disabled={loading || currentUser != null} onClick={handleLogin}>LogIn</button>
+        <button disabled={loading || !currentUser} onClick={handleLogout}>Log Out</button>
       </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}
 
-  export default App;
+export default App;
