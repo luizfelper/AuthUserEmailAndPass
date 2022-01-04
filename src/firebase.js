@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { initializeApp } from "firebase/app";
-import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -30,4 +30,8 @@ export function useAuth() {
     }, [])
 
     return currentUser;
+}
+
+export function logout() {
+    signOut(auth);
 }

@@ -1,6 +1,6 @@
 import './App.css';
-import React, {useState, useRef} from 'react';
-import {singup, useAuth} from './firebase';
+import React, { useState, useRef } from 'react';
+import { singup, logout, useAuth } from './firebase';
 
 
 function App() {
@@ -17,26 +17,35 @@ function App() {
     } catch {
       console.log("error");
     }
-    finally {
       setLoading(false);
-    }
   }
 
-  return (
-    <div className="App">
+  async function handleLogout() {
+    setLoading(true);
+    try {
+      await logout();
+    } catch {
+      console.log("error");
+    }
+      setLoading(false);
+  }
 
-      <div>
-        Atualmente logado como: {currentUser?.email}
+    return (
+      <div className="App">
+
+        <div>
+          Atualmente logado como: {currentUser?.email}
+        </div>
+
+        <div className="Principal">
+          <input ref={emailRef} placeholder="Email"></input>
+          <input ref={passwordRef} type="password" placeholder="Password"></input>
+        </div>
+
+        <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
+        <button onClick={handleLogout}>Log Out</button>
       </div>
+    );
+  }
 
-      <div className="Principal">
-        <input ref={emailRef} placeholder="Email"></input>
-        <input ref={passwordRef} type="password" placeholder="Password"></input>
-      </div>
-
-      <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
-    </div>
-  );
-}
-
-export default App;
+  export default App;
