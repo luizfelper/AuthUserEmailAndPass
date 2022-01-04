@@ -64,9 +64,9 @@ function App() {
       </div>
 
       <div className="butoes">
-        <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
-        <button disabled={loading || currentUser != null} onClick={handleLogin}>LogIn</button>
-        <button disabled={loading || !currentUser} onClick={handleLogout}>Log Out</button>
+        <button disabled={loading || currentUser != null} onClick={handleSignup}>Cadastrar</button>
+        <button disabled={loading || currentUser != null} onClick={handleLogin}>Logar</button>
+        <button disabled={loading || !currentUser} onClick={handleLogout}>Sair</button>
       </div>
     </div>
   );
