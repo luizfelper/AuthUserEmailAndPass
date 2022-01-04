@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useRef } from 'react';
-import { singup, logout, useAuth } from './firebase';
+import { singup, login, logout, useAuth } from './firebase';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     try {
       await singup(emailRef.current.value, passwordRef.current.value);
     } catch {
-      console.log("error");
+      console.log("error: ");
     }
       setLoading(false);
   }
@@ -26,6 +26,16 @@ function App() {
       await logout();
     } catch {
       console.log("error");
+    }
+      setLoading(false);
+  }
+
+  async function handleLogin() {
+    setLoading(true);
+    try {
+      await login(emailRef.current.value, passwordRef.current.value);
+    } catch {
+      console.log("error: ");
     }
       setLoading(false);
   }
@@ -43,7 +53,8 @@ function App() {
         </div>
 
         <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
-        <button onClick={handleLogout}>Log Out</button>
+        <button disabled={loading || currentUser != null} onClick={handleLogin}>LogIn</button>
+        <button  disabled={loading || !currentUser } onClick={handleLogout}>Log Out</button>
       </div>
     );
   }

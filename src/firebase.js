@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { initializeApp } from "firebase/app";
-import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,6 +20,14 @@ export function singup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
 }
 
+export function login(email, password) {
+    return signInWithEmailAndPassword(auth, email, password);
+}
+
+export function logout() {
+    signOut(auth);
+}
+
 //Hook customizado para pegar o usuario logado
 export function useAuth() {
     const [currentUser, setCurrentUser] = useState();
@@ -30,8 +38,4 @@ export function useAuth() {
     }, [])
 
     return currentUser;
-}
-
-export function logout() {
-    signOut(auth);
 }

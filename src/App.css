@@ -5,12 +5,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .Container {
   width: 300px;
   height: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
