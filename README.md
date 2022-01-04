@@ -2,11 +2,13 @@
 
 <img src="https://repository-images.githubusercontent.com/444424895/d916c973-08fd-4d02-8d49-cef7cac0e74a" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Veja o projeto online: https://authuserfelper.vercel.app/
 
-## Available Scripts
+Esse projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
 
-In the project directory, you can run:
+## Scripts Disponíveis
+
+Após clonar o repositório rode:
 
 ### `npm start`
 
