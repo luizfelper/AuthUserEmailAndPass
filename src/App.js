@@ -45,7 +45,7 @@ function App() {
 
       {currentUser === null &&
         <div>
-          <h1>Faça Login!</h1>
+          <h1>Faça Login ou Cadastre-se!</h1>
         </div>
       }
 
