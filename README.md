@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Projeto para fins de estudos de autenticação de usuário usando Firebase com ReactJS.
+
+<img src="https://repository-images.githubusercontent.com/444424895/d916c973-08fd-4d02-8d49-cef7cac0e74a" />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
