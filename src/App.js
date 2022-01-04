@@ -15,6 +15,7 @@ function App() {
     try {
       await singup(emailRef.current.value, passwordRef.current.value);
     } catch {
+      alert('Falha no cadastro, tente novamente.');
       console.log("error: ");
     }
     setLoading(false);
@@ -35,6 +36,7 @@ function App() {
     try {
       await login(emailRef.current.value, passwordRef.current.value);
     } catch {
+      alert("Usuário ou senha inválidos");
       console.log("error: ");
     }
     setLoading(false);
