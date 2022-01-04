@@ -42,19 +42,22 @@ function App() {
 
     return (
       <div className="App">
-
         <div>
           Atualmente logado como: {currentUser?.email}
         </div>
 
         <div className="Principal">
-          <input ref={emailRef} placeholder="Email"></input>
-          <input ref={passwordRef} type="password" placeholder="Password"></input>
+          <div className="Form">
+            <input ref={emailRef} placeholder="Email"></input>
+            <input ref={passwordRef} type="password" placeholder="Password"></input>
+          </div>
         </div>
 
-        <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
-        <button disabled={loading || currentUser != null} onClick={handleLogin}>LogIn</button>
-        <button  disabled={loading || !currentUser } onClick={handleLogout}>Log Out</button>
+      <div className="butoes">
+          <button disabled={loading || currentUser != null} onClick={handleSignup}>Sign Up</button>
+          <button disabled={loading || currentUser != null} onClick={handleLogin}>LogIn</button>
+          <button  disabled={loading || !currentUser } onClick={handleLogout}>Log Out</button>
+      </div>
       </div>
     );
   }
