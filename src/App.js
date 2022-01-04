@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState, useRef} from 'react';
+import {singup} from './firebase';
+
 
 function App() {
+  const [loading, setLoading] = useState(false);
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  async function handleSignup() {
+    setLoading(true);
+    try {
+      await singup(emailRef.current.value, passwordRef.current.value);
+    } catch {
+      console.log("error");
+    }
+    finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className="Principal">
+        <input ref={emailRef} placeholder="Email"></input>
+        <input ref={passwordRef} type="password" placeholder="Password"></input>
+      </div>
+
+      <button disabled={loading} onClick={handleSignup}>Sign Up</button>
     </div>
   );
 }
