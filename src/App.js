@@ -1,7 +1,7 @@
+import {Button} from 'antd';
 import './App.css';
 import React, { useState, useRef } from 'react';
 import { singup, login, logout, useAuth } from './firebase';
-
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -42,6 +42,7 @@ function App() {
     setLoading(false);
   }
 
+   
   return (
     <div className="App">
 
@@ -66,9 +67,9 @@ function App() {
       </div>
 
       <div className="butoes">
-        <button disabled={loading || currentUser != null} onClick={handleSignup}>Cadastrar</button>
-        <button disabled={loading || currentUser != null} onClick={handleLogin}>Logar</button>
-        <button disabled={loading || !currentUser} onClick={handleLogout}>Sair</button>
+        <Button type="primary" disabled={loading || currentUser != null} onClick={handleSignup}>Cadastrar</Button>
+        <Button type="primary"disabled={loading || currentUser != null} onClick={handleLogin}>Logar</Button>
+        <Button disabled={loading || !currentUser} onClick={handleLogout}>Sair</Button>
       </div>
     </div>
   );
