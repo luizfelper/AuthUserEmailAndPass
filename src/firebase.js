@@ -4,12 +4,7 @@ import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onA
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD6XPX9hghuJvnvS_GtdzOPFM0XQGN8680",
-  authDomain: "auth-aa223.firebaseapp.com",
-  projectId: "auth-aa223",
-  storageBucket: "auth-aa223.appspot.com",
-  messagingSenderId: "971381598037",
-  appId: "1:971381598037:web:78cb1a649b21fb58ae31dc"
+
 };
 
 // Initialize Firebase
